@@ -9,14 +9,10 @@ call minpac#add('tpope/vim-sensible')
 call minpac#add('petelewis/vim-evolution', {'type':'opt'})
 
 " Degrade gracefully if we don't have NeoVim or Vim 8 (from Greg Hurrell)
-if &loadplugins
-  if has('packages')
-    " Minpac takes care of this
-    "packloadall
-  else
-    source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
-    call pathogen#infect('pack/bundle/start/{}')
-  endif
+if !has('packages')
+  source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
+  call pathogen#infect('pack/bundle/start/{}')
+  " TODO: should this also load from pack/minpac/start?
 endif
 
 
