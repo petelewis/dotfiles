@@ -1,0 +1,204 @@
+[options]
+icon_name = /usr/share/icons/Adwaita/32x32/apps/utilities-terminal.png
+urgent_on_bell = true
+resize_grip = false
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+visible_bell = false
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+clickable_url = true
+scrollback_lines = 0
+search_wrap = true
+cursor_blink = system
+cursor_shape = block
+browser = firefox
+
+# Small font
+font = Inconsolata Awesome 18
+
+# Alternative fonts
+#font = Anonymous Pro for Powerline Regular 12
+#font = RobotoMono for Powerline Regular 11
+#font = MonoFur for Powerline Regular 12
+#font = FiraMono for Powerline Regular 10
+#font = Cousine for Powerline Regular 10
+
+[colors]
+
+# Options for a semi-transparent background
+#background = rgba(0, 0, 0, 0.9)
+background = rgba(23, 23, 23, 0.9)
+
+# Some colour themes follow. Uncomment the one you want.
+
+## Pretty and Pastel, from terminal.sexy
+
+## special
+foreground      = #888888
+foreground_bold = #888888
+cursor          = #888888
+#background      = #151515
+
+# black
+color0  = #292929
+color8  = #525252
+
+# red
+color1  = #cf6a4c
+color9  = #ff9d80
+
+# green
+color2  = #19cb00
+color10 = #23fd00
+
+# yellow
+color3  = #fad07a
+color11 = #ffefbf
+
+# blue
+color4  = #8197bf
+color12 = #accaff
+
+# magenta
+color5  = #8787af
+color13 = #c4c4ff
+
+# cyan
+color6  = #668799
+color14 = #80bfaf
+
+# white
+color7  = #888888
+color15 = #e8e8d3
+
+
+
+## Euphrasia, a nice light theme from terminal.sexy
+#[colors]
+
+## special
+#foreground      = #1c2027
+#foreground_bold = #1c2027
+#cursor          = #1c2027
+#background      = #cfcfd9
+
+## black
+#color0  = #192033
+#color8  = #666666
+
+## red
+#color1  = #a62a3e
+#color9  = #f04758
+
+## green
+#color2  = #38912b
+#color10 = #93c724
+
+## yellow
+#color3  = #b27d12
+#color11 = #ddb62b
+
+## blue
+#color4  = #355c9a
+#color12 = #45a3e6
+
+## magenta
+#color5  = #7c4f9f
+#color13 = #c953ef
+
+## cyan
+#color6  = #258f8f
+#color14 = #60c6c8
+
+## white
+#color7  = #77858c
+#color15 = #c0c0c0
+
+
+
+## Yousai, another nice light theme from terminal.sexy
+
+## special
+#foreground      = #34302d
+#foreground_bold = #34302d
+#cursor          = #34302d
+#background      = #f5e7de
+#
+## black
+#color0  = #666661
+#color8  = #7f7f7a
+#
+## red
+#color1  = #992e2e
+#color9  = #b23636
+#
+## green
+#color2  = #4c3226
+#color10 = #664233
+#
+## yellow
+#color3  = #a67c53
+#color11 = #bf8f60
+#
+## blue
+#color4  = #4c7399
+#color12 = #5986b2
+#
+## magenta
+#color5  = #bf9986
+#color13 = #d9ae98
+#
+## cyan
+#color6  = #d97742
+#color14 = #f2854a
+#
+## white
+#color7  = #34302d
+#color15 = #4c4742
+
+
+
+
+## GJM, from terminal.sexy
+
+## special
+#foreground      = #c5c5c5
+#foreground_bold = #c5c5c5
+#cursor          = #c5c5c5
+##background      = #1c1c1c
+#
+## black
+#color0  = #1c1c1c
+#color8  = #666666
+#
+## red
+#color1  = #ff005b
+#color9  = #ff00a0
+#
+## green
+#color2  = #cee318
+#color10 = #ccff00
+#
+## yellow
+#color3  = #ffe755
+#color11 = #ff9f00
+#
+## blue
+#color4  = #048ac7
+#color12 = #48c6ff
+#
+## magenta
+#color5  = #833c9f
+#color13 = #be67e1
+#
+## cyan
+#color6  = #0ac1cd
+#color14 = #63e7f0
+#
+## white
+#color7  = #e5e5e5
+#color15 = #f3f3f3
+
