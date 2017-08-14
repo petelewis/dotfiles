@@ -3,7 +3,10 @@ packadd minpac
 call minpac#init()
 
 " Register plugins using minpac
-call minpac#add('tpope/vim-sensible.git')
+" TODO: factor these out, a la https://github.com/nelstrom/dotfiles/blob/master/packages.vim
+call minpac#add('k-takata/minpac', {'type':'opt'})
+call minpac#add('tpope/vim-sensible')
+call minpac#add('petelewis/vim-evolution', {'type':'opt'})
 
 " Degrade gracefully if we don't have NeoVim or Vim 8 (from Greg Hurrell)
 if &loadplugins
