@@ -1,0 +1,6 @@
+- link:
+    ~/.vim: vim
+    ~/.vimrc: vim/vimrc
+
+- shell:
+  - [./vim/install-minpac]

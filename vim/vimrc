@@ -1,0 +1,212 @@
+" Minpac initialisation
+packadd minpac
+call minpac#init()
+
+" Register plugins using minpac
+call minpac#add('tpope/vim-sensible.git')
+
+" Degrade gracefully if we don't have NeoVim or Vim 8 (from Greg Hurrell)
+if &loadplugins
+  if has('packages')
+    " Minpac takes care of this
+    "packloadall
+  else
+    source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
+    call pathogen#infect('pack/bundle/start/{}')
+  endif
+endif
+
+
+
+" ~~~ Behaviour ~~~ "
+
+" Change <leader>
+let mapleader = ","
+
+" For local filetype-specific plugins
+let maplocalleader = ";"
+
+" Hide buffers instead of closing them when switching
+set hidden
+
+set mouse=a
+
+set scrolloff=3
+
+" Stop Q from taking us into ex mode - I don't think I ever needed this
+nnoremap Q <nop>
+
+" Mappings to automatically insert \v for very magic regular expressions
+cnoremap s/ s/\v
+nnoremap / /\v
+vnoremap / /\v
+
+" Alternative to Esc
+inoremap jj <esc>
+
+" Going with some crazy stuff here
+nnoremap ; :
+
+" Case-insensitive searching
+set ignorecase
+
+" But override if the pattern contains an upper-case letter
+set smartcase
+
+" Buffer switching
+nnoremap <leader>. :bp<CR>
+nnoremap <leader>, :buffer #<CR>
+nnoremap <leader>/ :bn<CR>
+
+" File exploring
+nnoremap <localleader>f :NERDTreeToggle<CR>
+
+" Wipe out the buffer
+nmap <leader>Q :bw!<CR><C-W><C-W>
+nmap <leader>q :bw<CR><C-W><C-W>
+
+
+
+" ~~~ Looks ~~~ "
+
+" Number of terminal colours to use
+
+" 24-bit true colour
+set termguicolors
+
+" An alternative is 256 colours. Currently, there doesn't seem to be any way
+" to reliably detect if the terminal supports true colour or not.
+"set t_Co=256
+
+" Colour scheme
+set background=dark
+colorscheme evolution
+
+" Show relative line numbers
+set number
+set rnu
+set nuw=4
+
+" Highlight other search matches
+set hlsearch
+nnoremap <space> :noh<return><esc>
+
+" Colour in / from the wrapped column as a reminder not to use it
+"set colorcolumn=+1
+let &l:colorcolumn='+' . join(range(0, 254), ',+')
+
+" Always show the status line
+set laststatus=2
+
+" Show cursor position too
+set ruler
+
+" Folds
+
+" Open files with top (e.g. class) level folds unfolded,
+" but everything below folded.
+"set foldlevelstart=1
+
+" Open files with not much folded at all.
+set foldlevelstart=9
+
+
+
+"~~~ Editing ~~~"
+
+" Default indentation (e.g. for < and >)
+set shiftwidth=2
+
+" When shifting text left or right, keep it selected
+vmap > >gv
+vmap < <gv
+
+" How many columns to interpret a \t character as
+set tabstop=8
+
+" How many columns (spaces) to insert when hitting <tab>.
+set softtabstop=2
+
+" But convert tab presses to spaces
+set expandtab
+
+" And use indentation from current line when starting a new line
+set autoindent
+
+" In case we find some erroneous \t characters:
+set list
+set list listchars=tab:▶→,trail:•,extends:»,precedes:«,nbsp:×
+
+" And highlight bad white space
+" (i.e. trailing, unused indents, tabs for indentations, space then tab)
+" Note that the colorscheme must support this through setting BadWhitespace
+" Space(s) then tab(s)
+au BufRead,BufNewFile * match BadWhitespace /\s+\t\+/
+" Lines starting with tabs, e.g. for indentation
+"au BufRead,BufNewFile * match BadWhitespace /^\t\+/
+" Unused indentation and trailing whitespace
+au BufRead,BufNewFile * match BadWhitespace /\s\+$/
+
+" Treat various other characters as word delimiters
+set iskeyword-=_
+
+" Don't automatically insert a comment command when entering insert mode with o
+au FileType * setl formatoptions-=o
+
+" But do when hitting enter on a comment line, or when wrapping
+au FileType * setl formatoptions+=rq
+
+" Recognise numbered lists
+au FileType * setl formatoptions+=n
+
+" Don't automatically break lines when they are too long, unless they
+" are comments
+au FileType * setl formatoptions+=lc
+
+" And try to remove comment leaders when joining lines
+au FileType * setl formatoptions+=j
+
+" Wrap text to textwidth
+vnoremap W gw
+nnoremap W gwap
+
+" With long lines, don't break in the middle of words
+set linebreak
+
+set undofile                " Save undos after file closes
+set undodir=$HOME/.vimundo  " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+
+" And treat display lines and real lines the same for motions, ugh.
+vmap j gj
+vmap k gk
+vmap $ g$
+vmap ^ g^
+vmap 0 g^
+nmap j gj
+nmap k gk
+nmap $ g$
+nmap ^ g^
+nmap 0 g^
+
+
+
+" ~~~ Spell checking ~~~ "
+
+" Enable spell checking by default, but disable it for file-types that are
+" known to not play well with Vim's spell mode. Note that good, modern syntax
+" highlighting files should be smart about this. Add file-types that are known
+" not to be, to the list below:
+set spell
+autocmd FileType conf,yaml setlocal nospell
+set spelllang=en_gb
+nmap <leader>s :set spell!<CR>
+
+
+
+" ~~~ And finally ~~~ "
+
+" After this file is sourced, plug-in code will be evaluated.
+" Then, files in ~/.vim/after are evaluated after that.
+
