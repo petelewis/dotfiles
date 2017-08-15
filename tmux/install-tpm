@@ -1,0 +1,6 @@
+# Basic script to install tpm after symlinking.
+# It manages itself after that.
+# TODO: Check it isn't already installed
+
+mkdir -p ~/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
