@@ -1,0 +1,9 @@
+# Sets zsh's DEFAULT_USER to be the current user, and hence hide hides it from
+# the prompt, if it is in the given list.
+#
+# Example usage: source ./set_default_user "pete|lewisp"
+
+if [[ $USER =~ ^($1)$ ]]; then
+  export DEFAULT_USER=${USER}
+fi
+

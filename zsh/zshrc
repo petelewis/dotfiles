@@ -1,0 +1,16 @@
+# Where the zsh configuration is stored
+zsh_config_dir=~/.zsh
+
+# Load Antigen
+source $zsh_config_dir/antigen/antigen.zsh
+
+# Load my Antigen plugins
+source $zsh_config_dir/my-antigen-config.zsh
+
+# For some annoying reason, oh-my-zsh sets this by default. Override that.
+unsetopt share_history
+
+# Set zsh's DEFAULT_USER if it is in the given list.
+# Zsh will then hide it from the prompt.
+# Other users will be shown as normal.
+source $zsh_config_dir/set_default_user "pete|lewisp"
