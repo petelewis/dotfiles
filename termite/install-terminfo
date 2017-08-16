@@ -1,0 +1,11 @@
+# Basic script to install tpm after symlinking.
+# It manages itself after that.
+# TODO: Check it isn't already installed
+
+if [ ! -f /usr/share/terminfo/x/xterm-termite ]
+then
+  wget https://raw.githubusercontent.com/thestinger/termite/master/termite.terminfo
+  tic -x termite.terminfo
+  rm termite.terminfo
+  echo "Installed new terminfo"
+fi
