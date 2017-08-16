@@ -1,3 +1,12 @@
+" ~~~ Preliminaries ~~~ "
+
+" Tell Vim to internally encode things to be displayed as UTF-8 Also allows
+" for unicode characters to be used in configuration files and scripts
+set encoding=utf-8
+
+
+" ~~~ Package Management ~~~ "
+
 " Minpac initialisation
 packadd minpac
 call minpac#init()
