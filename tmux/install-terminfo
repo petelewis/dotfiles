@@ -1,0 +1,9 @@
+# Basic script to install tmux-256color terminfo after symlinking.  Just using
+# a bundled version for now. This is provided in ncurses >6.0, so this script
+# can be removed after that has made its way to all targets.
+
+if [ ! -f /usr/share/terminfo/t/tmux-256color ]
+then
+  tic -x ~/.tmux/tmux-256color.terminfo
+  echo "Installed new terminfo"
+fi

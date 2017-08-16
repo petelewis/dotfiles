@@ -3,4 +3,4 @@
     ~/.tmux: tmux
 
 - shell:
-  - [./tmux/install-tpm]
+  - [./tmux/install-tpm; ./tmux/install-terminfo]
