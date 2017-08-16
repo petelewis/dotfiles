@@ -1,6 +1,6 @@
-# Basic script to install tpm after symlinking.
-# It manages itself after that.
-# TODO: Check it isn't already installed
+# Basic script to install xterm-termite terminfo.
+# This may already be present on the system, typically if termite is installed.
+# It has not yet (as of August 2017) been incorporated into ncurses.
 
 if [ ! -f /usr/share/terminfo/x/xterm-termite ]
 then
