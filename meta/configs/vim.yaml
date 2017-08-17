@@ -1,6 +1,12 @@
+- defaults: # TODO: wouldn't it be nice if dotbot supported includes?
+    link:
+      create: true
+      relink: true
+
 - link:
     ~/.vim: vim
     ~/.vimrc: vim/vimrc
+    ~/.config/nvim/init.vim: vim/init.vim
 
 - shell:
   - [./vim/install-minpac]
