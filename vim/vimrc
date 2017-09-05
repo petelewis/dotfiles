@@ -16,6 +16,7 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type':'opt'})
 call minpac#add('tpope/vim-sensible')
 call minpac#add('petelewis/vim-evolution', {'type':'opt'})
+call minpac#add('vim-scripts/TeX-9')
 
 " Degrade gracefully if we don't have NeoVim or Vim 8 (from Greg Hurrell)
 if !has('packages')
