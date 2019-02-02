@@ -1,0 +1,8 @@
+- defaults: # TODO: wouldn't it be nice if dotbot supported includes?
+    link:
+      create: true
+      relink: true
+
+- link:
+    ~/.config/evolution/accels: evolution/accels
+
