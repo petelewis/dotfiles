@@ -84,7 +84,8 @@
  org-tags-column -80
  org-agenda-files (ignore-errors (directory-files +org-dir t "\\.org$" t))
  org-log-done 'time
- css-indent-offset 2)
+ css-indent-offset 2
+ org-directory "~/Dropbox/org/")
 
 (after! dash (dash-enable-font-lock))
 
