@@ -33,6 +33,11 @@
 ;; Enable flashing mode-line on errors
 (doom-themes-visual-bell-config)
 
+;; Prefer splitting windows vertically than horizontally.
+;; We have widescreen monitors now, right?
+(setq
+   split-width-threshold 0
+   split-height-threshold nil)
 
 ;; Enable custom neotree theme (all-the-icons must be installed!)
 (doom-themes-neotree-config)
