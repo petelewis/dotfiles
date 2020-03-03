@@ -14,6 +14,10 @@ DOTBOT_BIN="bin/dotbot"
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Seems a bit of a workaround, until I can find a way to make link directives
+# construct targets on the fly
+export FIREFOX_PROFILE="$(grep 'Path=' ~/.mozilla/firefox/profiles.ini | sed s/^Path=//)"
+
 
 cd "${BASE_DIR}"
 #git submodule update --init --recursive --remote

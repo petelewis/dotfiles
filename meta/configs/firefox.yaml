@@ -1,0 +1,11 @@
+- defaults: # TODO: wouldn't it be nice if dotbot supported includes?
+    link:
+      create: true
+      relink: true
+      glob: true
+
+- shell:
+  - export FIREFOX_PROFILE="$(grep 'Path=' ~/.mozilla/firefox/profiles.ini | sed s/^Path=//)"
+
+- link:
+    ~/.mozilla/firefox/$FIREFOX_PROFILE/chrome: firefox/chrome
