@@ -95,8 +95,6 @@
 ;; remove the modes from `doom-modeline-continuous-word-count-modes'.
 (setq doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode))
 
-;; Don't show things that are gitignored
-;;(add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
 
 ;;; Editing
 
