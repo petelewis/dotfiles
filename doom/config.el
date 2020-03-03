@@ -1,35 +1,18 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here
+
+;;; First, some visual stuff
+
+;; Load the theme (doom-one, doom-molokai, etc);
+;; keep in mind that each theme may have their own settings.
 (require 'doom-themes)
-
-;; Global settings (defaults)
-(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-      doom-themes-enable-italic t) ; if nil, italics is universally disabled
-
-;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
-;; may have their own settings.
 (load-theme 'doom-solarized-dark t)
-
-;; Enable flashing mode-line on errors
-(doom-themes-visual-bell-config)
-
-;; Enable custom neotree theme (all-the-icons must be installed!)
-(doom-themes-neotree-config)
-;; or for treemacs users
-(doom-themes-treemacs-config)
-
-;; Corrects (and improves) org-mode's native fontification.
-(doom-themes-org-config)
-
-;; Add the name of the current workspace to Doom's modeline
-(setq doom-modeline-persp-name t)
-
 
 (require 'solaire-mode)
 
 ;; brighten buffers (that represent real files)
 (add-hook 'change-major-mode-hook #'turn-on-solaire-mode)
+
 ;; To enable solaire-mode unconditionally for certain modes:
 (add-hook 'ediff-prepare-buffer-hook #'solaire-mode)
 
@@ -47,9 +30,38 @@
 ;; NOTE: This is necessary for themes in the doom-themes package!
 (solaire-mode-swap-bg)
 
+;; Enable flashing mode-line on errors
+(doom-themes-visual-bell-config)
 
 
+;; Enable custom neotree theme (all-the-icons must be installed!)
+(doom-themes-neotree-config)
+;; and for treemacs too
+(doom-themes-treemacs-config)
 
+;; Corrects (and improves) org-mode's native fontification.
+(doom-themes-org-config)
+
+
+;;; Modeline and tab bar customisations
+
+;; Add the name of the current workspace to Doom's modeline
+(setq doom-modeline-persp-name t)
+
+;; If non-nil, a word count will be added to the selection-info modeline segment.
+(setq doom-modeline-enable-word-count t)
+
+;; Set the tab bar style
+(setq centaur-tabs-style "rounded")
+
+;; Display a small line under the tab
+(setq centaur-tabs-set-bar 'under)
+
+;; Don't show close buttons
+(setq centaur-tabs-set-close-button nil)
+
+
+;;; Fonts!
 
 (setq
  doom-font (font-spec :family "Inconsolata Nerd Font" :size 26)
@@ -102,10 +114,68 @@
 ;; Don't show things that are gitignored
 ;;(add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
 
+;;; Editing
 
 ;; Enable visual line mode
 ;; TODO: This only for certain modes?
 (global-visual-line-mode 1) ; 1 for on, 0 for off.
+
+
+;;;; Now for specific modules...
+
+;;; Treemacs config
+
+; (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
+;           treemacs-deferred-git-apply-delay   0.5
+;           treemacs-display-in-side-window     t
+;           treemacs-file-event-delay           5000
+;           treemacs-file-follow-delay          0.2
+;           treemacs-follow-after-init          t
+;           treemacs-follow-recenter-distance   0.1
+;           treemacs-git-command-pipe           ""
+;           treemacs-goto-tag-strategy          'refetch-index
+;           treemacs-indentation                2
+;           treemacs-indentation-string         " "
+;           treemacs-is-never-other-window      nil
+;           treemacs-max-git-entries            5000
+;           treemacs-no-png-images              nil
+;           treemacs-no-delete-other-windows    t
+;           treemacs-project-follow-cleanup     nil
+;           treemacs-persist-file               (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+;           treemacs-recenter-after-file-follow nil
+;           treemacs-recenter-after-tag-follow  nil
+;           treemacs-show-cursor                t
+;           treemacs-show-hidden-files          t
+;           treemacs-silent-filewatch           nil
+;           treemacs-silent-refresh             nil
+;           treemacs-sorting                    'alphabetic-desc
+;           treemacs-space-between-root-nodes   t
+;           treemacs-tag-follow-cleanup         t
+;           treemacs-tag-follow-delay           1.5
+;           treemacs-width                      30)
+
+;; Don't show things that are gitignored
+;;(add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
+
+
+;;; Latex
+(setq +latex-viewers '(evince))
+
+
+;;; Projectile
+;; Where to look for project directories
+(setq projectile-project-search-path '("~/Dropbox/Writings/WIP/" "~/Dropbox/Talks/" "~/Dropbox/Web/"))
+
+;; If there is a default file for the project, open that
+(defcustom project-default-file "README.md"
+  "Default file to open when switching to a project"
+  :group 'projectile
+  :type 'string)
+
+(setq +workspaces-switch-project-function '(lambda (dir) '(find-file project-default-file))) ; relative to project's root
+;;(setq +workspaces-switch-project-function '(lambda (dir) ())) ; relative to project's root
+
+;;; Org
 
 (with-eval-after-load "ox-latex"
   (add-to-list 'org-latex-classes
@@ -165,13 +235,6 @@
      :icon (all-the-icons-octicon "briefcase" :face 'font-lock-keyword-face)
      :action projectile-switch-project)
     ("Jump to bookmark"
-     :icon (all-the-icons-octicon "bookmark" :face 'font-lock-keyword-face)
-     :action bookmark-jump)
-    ("Open private configuration"
-     :icon (all-the-icons-octicon "tools" :face 'font-lock-keyword-face)
-     :when (file-directory-p doom-private-dir)
-     :action +default/find-in-config)
-    ("Open user manual"
-     :icon (all-the-icons-octicon "book" :face 'font-lock-keyword-face)
-     :when (file-exists-p (expand-file-name "index.org" doom-docs-dir))
-     :action doom/open-manual)))
+     :icon (all-the-icons-octicon "bookmark" :face 'doom-dashboard-menu-title)
+     :action bookmark-jump)))
+
