@@ -17,7 +17,9 @@ cursor_shape = block
 browser = firefox
 
 # Small font
-font = Inconsolata Awesome 18
+#font = Inconsolata Awesome 18
+#font = Inconsolata Nerd Font Medium 16
+font = JetBrains Mono Medium 16
 
 # Alternative fonts
 #font = Anonymous Pro for Powerline Regular 12
