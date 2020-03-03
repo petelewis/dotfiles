@@ -69,10 +69,12 @@
 ;;; Fonts!
 
 (setq
- doom-font (font-spec :family "Inconsolata Nerd Font" :size 26)
- doom-big-font (font-spec :family "Inconsolata Nerd Font" :size 32)
- ;doom-variable-pitch-font (font-spec :family "Avenir Next LT Pro" :size 18)
- doom-variable-pitch-font (font-spec :family "Avenir Next" :size 18)
+ doom-font (font-spec :family "JetBrainsMono Medium" :size 24)
+ doom-big-font (font-spec :family "JetBrainsMono Medium" :size 32)
+ ;;doom-font (font-spec :family "Inconsolata Nerd Font" :size 26)
+ ;;doom-big-font (font-spec :family "Inconsolata Nerd Font" :size 32)
+ doom-variable-pitch-font (font-spec :family "Avenir Next LT Pro" :size 18)
+ ;;doom-variable-pitch-font (font-spec :family "Avenir Next" :size 18)
  web-mode-markup-indent-offset 2
  web-mode-code-indent-offset 2
  org-agenda-skip-scheduled-if-done t
