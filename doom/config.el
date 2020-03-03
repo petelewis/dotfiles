@@ -195,7 +195,10 @@
 
 ;; Customise Doom's Dashboard
 ;;(setq +doom-dashboard-banner-dir (concat (DIR!) "dashboard-banners/"))
-;; this is by-default within doom-private-dir
+(setq fancy-splash-image "~/.doom.d/dashboard-banners/vi-man.png")
+
+;; Put some padding above the image (default is 0, 4)
+(setq +doom-dashboard-banner-padding '(2 . 4))
 
 ;; Override the default dashboard menu with this...
 (setq +doom-dashboard-menu-sections
