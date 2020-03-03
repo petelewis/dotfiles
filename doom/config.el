@@ -89,6 +89,11 @@
 
 (after! dash (dash-enable-font-lock))
 
+;; Major modes in which to display word count continuously.
+;; Also applies to any derived modes. Respects `doom-modeline-enable-word-count'.
+;; If it brings the sluggish issue, disable `doom-modeline-enable-word-count' or
+;; remove the modes from `doom-modeline-continuous-word-count-modes'.
+(setq doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode))
 
 ;; Don't show things that are gitignored
 ;;(add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
