@@ -11,3 +11,6 @@
 #sidebar-header {
   display: none;
 }
+#titlebar {
+  visibility: collapse;
+}
