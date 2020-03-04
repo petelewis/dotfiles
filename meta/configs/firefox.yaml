@@ -2,10 +2,6 @@
     link:
       create: true
       relink: true
-      glob: true
-
-- shell:
-  - export FIREFOX_PROFILE="$(grep 'Path=' ~/.mozilla/firefox/profiles.ini | sed s/^Path=//)"
 
 - link:
-    ~/.mozilla/firefox/$FIREFOX_PROFILE/chrome: firefox/chrome
+    $FIREFOX_PROFILE/chrome: firefox/chrome
