@@ -25,9 +25,9 @@ then
 fi
 
 # Linux
-if [[ -d "~/.mozilla/firefox" ]]
+if [[ -d "$HOME/.mozilla/firefox" ]]
 then
-    FIREFOX_PROFILE="~/.mozilla/firefox/profiles/"
+    FIREFOX_PROFILE="~/.mozilla/firefox/"
     FIREFOX_PROFILE+="$(grep 'Path=' ~/.mozilla/firefox/profiles.ini | sed s/^Path=//)"
 fi
 
