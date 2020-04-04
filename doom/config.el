@@ -33,19 +33,21 @@
 ;; Enable flashing mode-line on errors
 (doom-themes-visual-bell-config)
 
-;; Prefer splitting windows vertically than horizontally.
-;; We have widescreen monitors now, right?
-(setq
-   split-width-threshold 0
-   split-height-threshold nil)
+;; Corrects (and improves) org-mode's native fontification.
+(doom-themes-org-config)
 
 ;; Enable custom neotree theme (all-the-icons must be installed!)
 (doom-themes-neotree-config)
 ;; and for treemacs too
 (doom-themes-treemacs-config)
 
-;; Corrects (and improves) org-mode's native fontification.
-(doom-themes-org-config)
+
+
+;; Prefer splitting windows vertically than horizontally.
+;; We have widescreen monitors now, right?
+(setq
+   split-width-threshold 0
+   split-height-threshold nil)
 
 
 ;;; Modeline and tab bar customisations
