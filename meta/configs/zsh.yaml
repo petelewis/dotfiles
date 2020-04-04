@@ -1,3 +1,5 @@
 - link:
     ~/.zsh: zsh
     ~/.zshrc: zsh/zshrc
+    ~/.zprofile: zsh/zprofile
+    ~/.aliases: zsh/aliases

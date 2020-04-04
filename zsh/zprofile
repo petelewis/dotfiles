@@ -1,0 +1,26 @@
+# Use zsh's path array, and this will remove duplicates.
+# Note that zsh automatically turns $path into $PATH.
+typeset -U path
+path=($path ~/.rvm/bin)
+path=($path ~/.emacs.d/bin/)
+path=($path ~/bin/)
+
+export EDITOR="vim"
+export VISUAL=$EDITOR
+export GIT_EDITOR=$EDITOR
+
+export PAGER="/usr/bin/less -FrX"
+
+export BROWSER=/usr/bin/firefox
+
+export TERMINAL=/usr/bin/termite
+
+# Make Wine behave like 32 bit windows
+export WINEARCH=win32
+
+# Hide all Wine output on the command line
+export WINEDEBUG=-all
+
+# Force Libreoffice to use GTK even in KDE -- seems better now
+#export SAL_USE_VCLPLUGIN=gtk
+

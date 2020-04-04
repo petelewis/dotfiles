@@ -1,0 +1,104 @@
+#### Aliases ####
+
+# Standard aliases
+
+alias ..='cd ..'
+alias ls="ls -b --color=auto --file-type -h"
+alias l='ls -lhrt'                       # list, sorted by LRU, detailed with human-readable sizes
+alias ll='ls -lh |less'                  # list detailed with human-readable sizes, pipe through less
+alias la='ls -lah'                       # list all files
+alias lsa='ls -ah'
+alias lal='ls -ah | less'                # list all files, pipe through less
+alias less='less -FX'                    # Don't refresh the screen, etc.
+alias k='tree'
+alias kl='tree |less'
+alias jobs='jobs -l'                     # show more info including process id
+alias eclipse='eclipse -nosplash'
+alias ssh='TERM=xterm-256color ssh'      # don't use local custom termcap files
+
+alias cb='cd ~-'
+alias grep='grep --color=auto'
+alias e=$EDITOR
+
+alias p="pacman"
+alias sp="sudo pacman"
+alias paclist="pacman -Sl | cut -d' ' -f2 | grep "
+alias pacsize="LC_ALL=C pacman -Qi | sed -n '/^Name[^:]*: \(.*\)/{s//\1 /;x};/^Installed[^:]*: \(.*\)/{s//\1/;H;x;s/\n//;p}' | sort -nk2"
+#alias pacman=pacman-color
+alias y=yaourt
+
+alias h='history | grep $1'               # search cmd history
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias f='find | grep'                     # quick search
+alias pss='ps aux | grep -v grep | grep'  # search process
+alias top=htop 				# htop looks nicer, and I forget I've got it otherwise
+alias diff=colordiff
+
+# Make a directory and cd into it
+function mkcdir
+{
+  mkdir $1 && cd $1
+}
+
+function pdfpages
+{
+  pdfinfo $1 |grep Pages
+}
+
+# Host specific aliases
+
+function aliases_uni {
+  # No longer using task outside of a work context
+  #alias task='task rc.default.command=work'
+}
+
+function aliases_personal {
+  alias task='task rc.default.command=personal'
+}
+
+
+# And here's where we manage the host specific aliases
+[[ `hostname` == 'puddleduck' ]] && aliases_uni
+[[ `hostname` == 'gromit' ]] && aliases_uni
+[[ `hostname` == 'whiskers' ]] && aliases_personal
+[[ `hostname` == 'benjamin' ]] && aliases_personal
+[[ `hostname` == 'polymath' ]] && aliases_personal
+
+
+alias lst='find -maxdepth 1 -type f -mtime -1 -printf "%T@-%Tk:%TM - %f\n" | sort -rn | cut -d- -f2-'
+alias nettop='sudo nethogs wlan0'
+alias aurbuild="sudo env EDITOR=\$EDITOR aurbuild"
+
+
+# Email stuff
+
+# Mutt can emulate mailx and use all my mutt settings
+alias mail='/usr/bin/mutt -x'
+
+# Always start mutt in a tmux session, and don't duplicate sessions.
+alias mutt='tmux attach -t mail || tmux new -s mail mutt'
+
+alias mail-from-uni='mail -e "source ~/dotfiles/mutt/academic.profile"'
+alias mail-from-letterboxes='mail -e "source ~/dotfiles/mutt/letterboxes.profile"'
+alias mail-from-muddygoat='mail -e "source ~/dotfiles/mutt/personal.profile"'
+
+
+# Automatic sudo aliases
+
+alias halt='sudo halt'
+alias reboot='sudo reboot'
+
+
+# Suffix aliases
+
+alias -s tex=$EDITOR
+alias -s html=links
+alias -s org=links
+alias -s com=links
+alias -s co.uk=links
+
+
+# Politeness
+alias please=sudo
+
