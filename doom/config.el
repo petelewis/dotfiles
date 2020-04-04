@@ -164,37 +164,83 @@
 
 (with-eval-after-load "ox-latex"
   (add-to-list 'org-latex-classes
-               '("koma-article" "\\documentclass{scrartcl}"
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+    '("koma-article" "\\documentclass{scrartcl}"
+     ("\\section{%s}" . "\\section*{%s}")
+     ("\\subsection{%s}" . "\\subsection*{%s}")
+     ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+     ("\\paragraph{%s}" . "\\paragraph*{%s}")
+     ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
-;; Org-mode keymap overrides
-;; <localleader>
- (after! org
+(after! org
+  (setq org-directory "~/Dropbox/org/"
+    ;org-agenda-files (org-directory t "\\.org$" t)
+    org-agenda-files (quote ("~/Dropbox/org"))
+    org-archive-location (concat org-directory "Archive/_%s::")
+    org-refile-use-outline-path 'file ;; Allow us to refile to top-level nodes in files
+    org-refile-targets '((org-agenda-files :level . 1))
+    org-tags-column -80
+    org-priority-faces '((?A :foreground "#e45649")
+                          (?B :foreground "#da8548")
+                          (?C :foreground "#0098dd"))
+    org-bullets-bullet-list '("❖")
+    org-ellipsis " ▼ "
+    org-todo-keywords '((sequence "[ ](t)" "[~](i)" "[-](w)" "|" "[✔](d)" "[✘](c)"))
+    org-todo-keyword-faces
+    '(("[ ]" :foreground "#6971c4" :weight normal :underline f)
+      ("[~]" :foreground "#268bd2" :weight normal :underline f)
+      ("[-]" :foreground "#d33682" :weight normal :underline f)
+      ("[✔]" :foreground "#859900" :weight normal :underline f)
+      ("[✘]" :foreground "#dc322f" :weight normal :underline f))
+    ;;org-re-reveal-script-files '("js/reveal.js")
+    ;;org-latex-packages-alist '(("margin=2cm" "geometry" nil))
+    ;;
+    ;;org-log-done 'time
+    org-agenda-skip-scheduled-if-done t
+    js-indent-level 2
+    css-indent-offset 2
+
+    ;; Don't treat whitespace as content (for folding), below org bullets
+    ;; See https://stackoverflow.com/questions/40332479/org-mode-folding-considers-whitespace-as-content
+    org-cycle-separator-lines -1
+
+    ;; Follow links in org files by pressing return
+    org-return-follows-links t)
+
+  ;;; Additional keymappings for org mode
   (map! :map evil-org-mode-map
-        :localleader
-        :n "d" #'org-deadline
-        :n "s" #'org-schedule ;; adding s for org-schedule
-        :n "t" #'org-todo
-        (:prefix "c"
-          :n "i" #'org-clock-in ;; mnemonic clock-In
-          :n "o" #'org-clock-out ;; mnemonic clock-Out
-          :n "g" #'org-clock-goto
-          :n "G" (λ! (org-clock-goto 'select))
-          :n "x" #'org-clock-cancel))
-  (setq org-agenda-files (quote ("~/Dropbox/org"
-                                 "~/org")))
-  ;; Don't treat whitespace as content (for folding), below org bullets
-  ;; See https://stackoverflow.com/questions/40332479/org-mode-folding-considers-whitespace-as-content
-  (setq org-cycle-separator-lines -1))
+    :localleader
+    :n "s" #'org-schedule ;; adding s for org-schedule
+    :n "A" #'org-archive-subtree-hierarchical) ;; replacing the default command with this (from autoloads)
+
+  ;;; Quick access to the agenda - can I bypass the agenda menu?
+  ;;; n is a good view for a daily/weekly review,
+  ;;; a is too cluttered with things I haven't done from previous days with things I need to do today
+  (map! :leader
+        :n "a" #'org-agenda)
+
+  ;; Save all org-mode buffers, every time there is a period of inactivity
+  ;; From https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
+  (add-hook 'auto-save-hook 'org-save-all-org-buffers)
+
+  ;; Org-capture files
+  (setq org-default-notes-file (concat org-directory "Misc.org")
+        +org-capture-todo-file "Tasks.org"
+    +org-capture-notes-file "Notes.org"
+    +org-capture-journal-file "Journal.org")
+
+  ;; Org-capture templates
+  ;;(setq org-capture-templates nil)
+
+  ;; Quick capture todo item to inbox
+  (add-to-list 'org-capture-templates
+              '("t" "Misc Todo" entry
+                (file+headline +org-capture-todo-file "Inbox")
+                "* [ ] %?\n%i\n%a" :prepend t))
+)
 
 
-;; Save all org-mode buffers, every time there is a period of inactivity
-;; From https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
-(add-hook 'auto-save-hook 'org-save-all-org-buffers)
+
+
 
 ;; Customise Doom's Dashboard
 ;;(setq +doom-dashboard-banner-dir (concat (DIR!) "dashboard-banners/"))
