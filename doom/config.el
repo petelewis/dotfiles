@@ -243,7 +243,6 @@
 
 
 ;; Customise Doom's Dashboard
-;;(setq +doom-dashboard-banner-dir (concat (DIR!) "dashboard-banners/"))
 (setq fancy-splash-image "~/.doom.d/dashboard-banners/vi-man.png")
 
 ;; Put some padding above the image (default is 0, 4)
