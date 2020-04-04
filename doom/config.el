@@ -59,35 +59,36 @@
 (setq doom-modeline-enable-word-count t)
 
 ;; Set the tab bar style
-(setq centaur-tabs-style "rounded")
+;(setq centaur-tabs-style "rounded")
 
 ;; Display a small line under the tab
-(setq centaur-tabs-set-bar 'under)
+;(setq centaur-tabs-set-bar 'under)
 
 ;; Don't show close buttons
-(setq centaur-tabs-set-close-button nil)
+;(setq centaur-tabs-set-close-button nil)
 
+
+;(after! centaur-tabs
+;  ;; Projectile integration
+;  (centaur-tabs-group-by-projectile-project)
+;  ;; Ensure tab order and buffer order are consistent
+;  (centaur-tabs-enable-buffer-reordering)
+;  ;; When the currently selected tab(A) is at the right of the last visited
+;  ;; tab(B), move A to the right of B. When the currently selected tab(A) is
+;  ;; at the left of the last visited tab(B), move A to the left of B
+;  (setq centaur-tabs-adjust-buffer-order t))
 
 ;;; Fonts!
 
 (setq
- doom-font (font-spec :family "JetBrainsMono Medium" :size 24)
- doom-big-font (font-spec :family "JetBrainsMono Medium" :size 32)
- ;;doom-font (font-spec :family "Inconsolata Nerd Font" :size 26)
- ;;doom-big-font (font-spec :family "Inconsolata Nerd Font" :size 32)
- doom-variable-pitch-font (font-spec :family "Avenir Next LT Pro" :size 18)
- ;;doom-variable-pitch-font (font-spec :family "Avenir Next" :size 18)
- web-mode-markup-indent-offset 2
- web-mode-code-indent-offset 2
- org-agenda-skip-scheduled-if-done t
- js-indent-level 2
- org-ellipsis " ▾ "
- org-bullets-bullet-list '("·")
- org-tags-column -80
- org-agenda-files (ignore-errors (directory-files +org-dir t "\\.org$" t))
- org-log-done 'time
- css-indent-offset 2
- org-directory "~/Dropbox/org/")
+  doom-font (font-spec :family "JetBrainsMono Medium" :size 24)
+  doom-big-font (font-spec :family "JetBrainsMono Medium" :size 32)
+  ;;doom-font (font-spec :family "Inconsolata Nerd Font" :size 26)
+  ;;doom-big-font (font-spec :family "Inconsolata Nerd Font" :size 32)
+  doom-variable-pitch-font (font-spec :family "Avenir Next LT Pro" :size 18)
+  ;;doom-variable-pitch-font (font-spec :family "Avenir Next" :size 18)
+  web-mode-markup-indent-offset 2
+  web-mode-code-indent-offset 2)
 
 (after! dash (dash-enable-font-lock))
 
