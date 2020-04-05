@@ -1,5 +1,12 @@
 # dotfiles
 
+## About
+
+My dotfiles! Used and tested on Archlinux and MacOS.
+
+
+## History and Status
+
 I have kept my dotfiles in a private git repository since around 2011. This is
 a newly refactored repository, that aims to make using them across different
 machines easy.
@@ -20,3 +27,18 @@ fresh start.
 
 I am currently working from a mix of this and my previous repository. As I port
 things over to here, this will contain a fuller picture of my configuration.
+
+## Usage
+
+I use some git hooks to prompt me to do things on certain updates. To make sure these work, run this one-time command in the root of the newly cloned repository:
+
+    git config core.hooksPath .githooks
+
+On first run, you need to install a profile using dotbot. E.g.
+
+    ./install-profile full
+
+Available profiles can be found in `meta/profiles`.
+
+Almost everything is automated from this. One exception is Vim's packages: run `PacUpdate` inside Vim, to install Vim's plugins.
+
