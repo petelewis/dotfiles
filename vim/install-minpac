@@ -1,8 +1,14 @@
-# Basic script to install minpac after symlinking.
-# It manages itself after that.
-# TODO: Check it isn't already installed
+#!/bin/bash
 
-mkdir -p ~/.vim/pack/minpac/opt
-cd ~/.vim/pack/minpac/opt
-git clone https://github.com/k-takata/minpac.git
+# Basic script to install minpac after symlinking.
+# It manages and updates itself after that.
+
+# Only install if it isn't already there:
+if [ ! -d "vim/pack/minpac/opt/minpac" ]; then
+  echo 'Installing minpac...'
+  mkdir -p vim/pack/minpac/opt
+  git clone https://github.com/k-takata/minpac.git vim/pack/minpac/opt/minpac && echo '✔ Success!'
+else
+  echo '✔ minpac is already installed.'
+fi
 
