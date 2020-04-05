@@ -41,6 +41,15 @@ On first run, you need to install a profile using dotbot. E.g.
 Available profiles can be found in `meta/profiles`.
 
 
+## Dependencies
+
+There are a few things that you'll need, to get the most out of this:
+
+- Your terminal emulator set up to use a [nerd font](https://www.nerdfonts.com). Some glyphs will be missing otherwise.
+
+- [zsh](https://www.zsh.org), now default on Mac OS, and in every major Linux distro.
+
+
 ## Keeping up to date
 
 To keep up to date...

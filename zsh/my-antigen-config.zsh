@@ -9,7 +9,7 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # A fully-featured powerline-like theme:
-POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_MODE='nerdfont-complete'
 antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # Tell antigen that we're done.
