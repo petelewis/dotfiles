@@ -28,7 +28,7 @@ fresh start.
 I am currently working from a mix of this and my previous repository. As I port
 things over to here, this will contain a fuller picture of my configuration.
 
-## Usage
+## Installation
 
 I use some git hooks to prompt me to do things on certain updates. To make sure these work, run this one-time command in the root of the newly cloned repository:
 
@@ -40,5 +40,43 @@ On first run, you need to install a profile using dotbot. E.g.
 
 Available profiles can be found in `meta/profiles`.
 
-Almost everything is automated from this. One exception is Vim's packages: run `PacUpdate` inside Vim, to install Vim's plugins.
+
+## Keeping up to date
+
+To keep up to date...
+
+    $ git pull
+    $ ./install-profile <my profile>
+
+Almost everything is automated by the install scripts.
+
+There are three exceptions, where I use local package managers:
+
+### Vim plugins with minpac
+
+For a while I did this through submodules, but this proved to be too much hassle. I now manage these separately, using minpac. To keep them (and minpac itself) updated, run `PacUpdate` inside Vim.
+
+### Zsh packages with antigen
+
+I use antigen as a package manager for zsh. This has its own command-line tool and plugins are stored and versioned separately from this repo. To update your local antigen packages, do:
+
+    antigen update
+
+Antigen itself is stored as a submodule of this repo, and is pegged to a known-working version. It provides a simple self-update mechanism:
+
+    antigen selfupdate
+
+Updating antigen itself triggers an update of the submodule from upstream, so making that permanent requires a commit to this repo.
+
+
+### Emacs with Doom
+
+I use the rather awesome Doom Emacs. This provides its own command-line tool too, `doom`. This repo stays out of the way of Doom's own package management, and just stores the local doom configuration.
+
+Bear in mind that pulling down the latest version of this repo might require a `doom sync`, or even an update, if we are now relying on new features.
+
+
+### Dotbot itself
+
+Dotbot is installed as a submodule, pegged to a known-working version. Updating this requires updating the submodule manually and committing that change to this repo.
 
