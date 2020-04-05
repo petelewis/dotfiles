@@ -1,0 +1,8 @@
+# GNU-specific things
+alias ls="ls -b --color=auto --file-type -h"
+
+# Archlinux
+alias p="pacman"
+alias sp="sudo pacman"
+alias paclist="pacman -Sl | cut -d' ' -f2 | grep "
+alias pacsize="LC_ALL=C pacman -Qi | sed -n '/^Name[^:]*: \(.*\)/{s//\1 /;x};/^Installed[^:]*: \(.*\)/{s//\1/;H;x;s/\n//;p}' | sort -nk2"

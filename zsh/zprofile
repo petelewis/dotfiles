@@ -5,15 +5,13 @@ path=($path ~/.rvm/bin)
 path=($path ~/.emacs.d/bin/)
 path=($path ~/bin/)
 
-export EDITOR="vim"
+export EDITOR="emacs -nw"
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
 
-export PAGER="/usr/bin/less -FrX"
+export PAGER="less"
 
-export BROWSER=/usr/bin/firefox
-
-export TERMINAL=/usr/bin/termite
+export BROWSER="firefox"
 
 # Make Wine behave like 32 bit windows
 export WINEARCH=win32
