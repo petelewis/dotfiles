@@ -5,6 +5,7 @@
 set encoding=utf-8
 
 
+
 " ~~~ Package Management ~~~ "
 
 " Minpac initialisation
@@ -100,9 +101,7 @@ if !has('nvim')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
-
-" Number of terminal colours to use
-
+" Number of terminal colours to use:
 " 24-bit true colour
 set termguicolors
 
@@ -132,6 +131,7 @@ set laststatus=2
 
 " Show cursor position too
 set ruler
+
 
 " Folds
 
