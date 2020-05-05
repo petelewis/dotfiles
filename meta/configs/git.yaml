@@ -1,0 +1,13 @@
+- defaults: # TODO: wouldn't it be nice if dotbot supported includes?
+    link:
+      create: true
+      relink: true
+    shell:
+      stdout: true
+      stderr: true
+
+- link:
+    ~/.gitconfig: git/gitconfig
+
+- shell:
+  - [./git/build-global-gitignore.sh]
