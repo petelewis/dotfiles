@@ -4,3 +4,6 @@
 [submodule "antigen"]
 	path = zsh/antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule "git/gitignore-templates"]
+	path = git/gitignore-templates
+	url = git@github.com:github/gitignore.git
