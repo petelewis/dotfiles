@@ -67,7 +67,7 @@ For a while I did this through submodules, but this proved to be too much hassle
 
 ### Zsh packages with antigen
 
-I use antigen as a package manager for zsh. This has its own command-line tool and plugins are stored and versioned separately from this repo. To update your local antigen packages, do:
+I use [antigen](http://antigen.sharats.me) as a package manager for zsh. This has its own command-line tool and plugins are stored and versioned separately from this repo. To update your local antigen packages, do:
 
     antigen update
 
@@ -80,7 +80,7 @@ Updating antigen itself triggers an update of the submodule from upstream, so ma
 
 ### Emacs with Doom
 
-I use the rather awesome Doom Emacs. This provides its own command-line tool too, `doom`. This repo stays out of the way of Doom's own package management, and just stores the local doom configuration.
+I use the rather awesome [Doom Emacs](https://github.com/hlissner/doom-emacs). This provides its own command-line tool too, `doom`. This repo stays out of the way of Doom's own package management, and just stores the local doom configuration.
 
 Bear in mind that pulling down the latest version of this repo might require a `doom sync`, or even an update, if we are now relying on new features.
 
