@@ -149,7 +149,7 @@
 
 ;;; Projectile
 ;; Where to look for project directories
-(setq projectile-project-search-path '("~/Dropbox/Writings/WIP/" "~/Dropbox/Talks/" "~/Dropbox/Web/"))
+(setq projectile-project-search-path '("~/Dropbox/Research/Writings/WIP/" "~/Dropbox/Research/Talks/" "~/Dropbox/Web/"))
 
 ;; If there is a default file for the project, open that
 (defcustom project-default-file "README.md"
