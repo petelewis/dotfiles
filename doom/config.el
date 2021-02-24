@@ -81,10 +81,10 @@
 ;;; Fonts!
 
 (setq
-  doom-font (font-spec :family "JetBrainsMono Medium" :size 24)
-  doom-big-font (font-spec :family "JetBrainsMono Medium" :size 32)
-  ;;doom-font (font-spec :family "Inconsolata Nerd Font" :size 26)
-  ;;doom-big-font (font-spec :family "Inconsolata Nerd Font" :size 32)
+  ;;doom-font (font-spec :family "JetBrainsMono Medium" :size 24)
+  ;;doom-big-font (font-spec :family "JetBrainsMono Medium" :size 32)
+  doom-font (font-spec :family "Inconsolata Nerd Font" :size 28)
+  doom-big-font (font-spec :family "Inconsolata Nerd Font" :size 32)
   doom-variable-pitch-font (font-spec :family "Avenir Next LT Pro" :size 16)
   ;;doom-variable-pitch-font (font-spec :family "Avenir Next" :size 18)
   web-mode-markup-indent-offset 2
