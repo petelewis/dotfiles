@@ -79,12 +79,13 @@
 ;  (setq centaur-tabs-adjust-buffer-order t))
 
 ;;; Fonts!
+;; Note that the 'Mono' version of Inconsolata Nerd Font doesn't use ligatures, so doesn't suffer from the 'telephone bug'
 
 (setq
   ;;doom-font (font-spec :family "JetBrainsMono Medium" :size 24)
   ;;doom-big-font (font-spec :family "JetBrainsMono Medium" :size 32)
-  doom-font (font-spec :family "Inconsolata Nerd Font" :size 28)
-  doom-big-font (font-spec :family "Inconsolata Nerd Font" :size 32)
+  doom-font (font-spec :family "Inconsolata Nerd Font Mono" :size 26)
+  doom-big-font (font-spec :family "Inconsolata Nerd Font Mono" :size 32)
   doom-variable-pitch-font (font-spec :family "Avenir Next LT Pro" :size 16)
   ;;doom-variable-pitch-font (font-spec :family "Avenir Next" :size 18)
   web-mode-markup-indent-offset 2
