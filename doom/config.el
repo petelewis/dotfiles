@@ -208,9 +208,8 @@
     org-return-follows-links t)
 
   ;;; Additional keymappings for org mode
-  (map! :map evil-org-mode-map
+  (map! :map org-mode-map
     :localleader
-    :n "s" #'org-schedule ;; adding s for org-schedule
     :n "A" #'org-archive-subtree-hierarchical) ;; replacing the default command with this (from autoloads)
 
   ;;; Quick access to the agenda - can I bypass the agenda menu?
