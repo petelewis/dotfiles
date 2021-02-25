@@ -1,5 +1,5 @@
-;;; +org-archive-subtree-hierarchical.el -*- lexical-binding: t; -*-
-
+;; org-archive-subtree-hierarchical.el
+;;
 ;; version 0.2
 ;; modified from https://lists.gnu.org/archive/html/emacs-orgmode/2014-08/msg00109.html
 ;; modified from https://stackoverflow.com/a/35475878/259187
@@ -26,10 +26,9 @@
 ;;  (require 'org-archive-subtree-hierarchical)
 ;;  (setq org-archive-default-command 'org-archive-subtree-hierarchical)
 ;;
-;(provide 'org-archive-subtree-hierarchical)
-;(require 'org-archive)
+(provide 'org-archive-subtree-hierarchical)
+(require 'org-archive)
 
-;;;###autoload
 (defun org-archive-subtree-hierarchical--line-content-as-string ()
   "Returns the content of the current line as a string"
   (save-excursion
@@ -37,7 +36,6 @@
     (buffer-substring-no-properties
      (line-beginning-position) (line-end-position))))
 
-;;;###autoload
 (defun org-archive-subtree-hierarchical--org-child-list ()
   "This function returns all children of a heading as a list. "
   (interactive)
@@ -53,7 +51,6 @@
         (setq child-list (cons (org-archive-subtree-hierarchical--line-content-as-string) child-list)))
       child-list)))
 
-;;;###autoload
 (defun org-archive-subtree-hierarchical--org-struct-subtree ()
   "This function returns the tree structure in which a subtree
 belongs as a list."
@@ -69,7 +66,6 @@ belongs as a list."
             (setq archive-tree (cons heading archive-tree))))))
     archive-tree))
 
-;;;###autoload
 (defun org-archive-subtree-hierarchical ()
   "This function archives a subtree hierarchical"
   (interactive)
@@ -115,7 +111,6 @@ belongs as a list."
       (message "Subtree archived %s"
                (concat "in file: " (abbreviate-file-name afile))))))
 
-;;;###autoload
 (defun org-insert-struct (struct)
   "TODO"
   (interactive)
@@ -124,5 +119,6 @@ belongs as a list."
     (newline)
     (org-insert-struct (cdr struct))))
 
-;(defun org-archive-subtree ()
-;  (org-archive-subtree-hierarchical))
+(defun org-archive-subtree ()
+  (org-archive-subtree-hierarchical)
+  )
