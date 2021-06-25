@@ -4,6 +4,7 @@ typeset -U path
 path=($path ~/.rvm/bin)
 path=($path ~/.emacs.d/bin/)
 path=($path ~/bin/)
+path=($path ~/.cargo/bin/)
 
 export EDITOR="emacs -nw"
 export VISUAL=$EDITOR

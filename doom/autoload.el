@@ -1,5 +1,7 @@
 ;; org-archive-subtree-hierarchical.el
 ;;
+;;;###autoload
+;;
 ;; version 0.2
 ;; modified from https://lists.gnu.org/archive/html/emacs-orgmode/2014-08/msg00109.html
 ;; modified from https://stackoverflow.com/a/35475878/259187
