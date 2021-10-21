@@ -175,12 +175,12 @@
 (setq projectile-project-search-path '("~/Dropbox/Research/Writings/WIP/" "~/Dropbox/Research/Talks/" "~/Dropbox/src"))
 
 ;; If there is a default file for the project, open that
-(defcustom project-default-file "README.md"
-  "Default file to open when switching to a project"
-  :group 'projectile
-  :type 'string)
+;;(defcustom project-default-file "README.md"
+;;  "Default file to open when switching to a project"
+;;  :group 'projectile
+;;  :type 'string)
 
-(setq +workspaces-switch-project-function '(lambda (dir) '(find-file project-default-file))) ; relative to project's root
+;;(setq +workspaces-switch-project-function '(lambda (dir) '(find-file project-default-file))) ; relative to project's root
 ;;(setq +workspaces-switch-project-function '(lambda (dir) ())) ; relative to project's root
 
 ;;; Org
