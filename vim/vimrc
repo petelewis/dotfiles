@@ -22,6 +22,7 @@ call minpac#add('honza/vim-snippets')
 call minpac#add('scrooloose/nerdcommenter')
 call minpac#add('tpope/vim-surround')
 call minpac#add('neomutt/neomutt.vim')
+call minpac#add('lervag/vimtex')
 
 " Degrade gracefully if we don't have NeoVim or Vim 8 (from Greg Hurrell)
 if !has('packages')
