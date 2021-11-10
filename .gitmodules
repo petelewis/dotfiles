@@ -10,3 +10,6 @@
 [submodule "kitty/kitty-themes"]
 	path = kitty/kitty-themes
 	url = git@github.com:dexpota/kitty-themes.git
+[submodule "Übersicht/widgets/simple-bar"]
+	path = Übersicht/widgets/simple-bar
+	url = https://github.com/Jean-Tinland/simple-bar

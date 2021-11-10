@@ -1,10 +1,22 @@
 # Use zsh's path array, and this will remove duplicates.
 # Note that zsh automatically turns $path into $PATH.
 typeset -U path
+
 path=($path ~/.rvm/bin)
 path=($path ~/.emacs.d/bin/)
 path=($path ~/bin/)
 path=($path ~/.cargo/bin/)
+
+# If on Mac with Homebrew
+if [ -d "/opt/homebrew" ]; then
+  # Which Homebrew things do I want to override the default MacOS versions?
+  path=(/opt/homebrew/opt/python/libexec/bin $path)
+  path=(/opt/homebrew/opt/findutils/libexec/gnubin $path)
+
+  # And finally include the main non-conflicting Homebrew commands in the path
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 
 export EDITOR="emacs -nw"
 export VISUAL=$EDITOR
@@ -24,8 +36,16 @@ export WINEDEBUG=-all
 #export SAL_USE_VCLPLUGIN=gtk
 
 # If on WSL...
-if [[ $(grep microsoft /proc/version) ]]; then
+if [[ $(grep microsoft /proc/version >/dev/null 2>&1) ]]; then
   export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
   export LIBGL_ALWAYS_INDIRECT=1
+fi
+
+# Completions
+if type brew &>/dev/null; then
+ FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+ FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+ autoload -Uz compinit
+ compinit
 fi
 
