@@ -6,7 +6,6 @@ path=($path ~/.rvm/bin)
 path=($path ~/.emacs.d/bin/)
 path=($path ~/bin/)
 path=($path ~/.cargo/bin/)
-path=($path ~/.local/bin/)
 
 # If on Mac with Homebrew
 if [ -d "/opt/homebrew" ]; then
@@ -19,7 +18,7 @@ if [ -d "/opt/homebrew" ]; then
 fi
 
 
-export EDITOR="vim"
+export EDITOR="emacs -nw"
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
 
