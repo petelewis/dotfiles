@@ -1,4 +1,4 @@
 - link:
     ~/.zsh: zsh
     ~/.zshrc: zsh/zshrc
-    ~/.zprofile: zsh/zprofile
+    ~/.zshenv: zsh/zshenv
