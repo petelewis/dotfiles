@@ -2,3 +2,4 @@
     ~/.zsh: zsh
     ~/.zshrc: zsh/zshrc
     ~/.zshenv: zsh/zshenv
+    ~/.p10k.zsh: zsh/p10k.zsh
