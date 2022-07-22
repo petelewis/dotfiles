@@ -1,0 +1,6 @@
+- link:
+    ~/.tmux.conf: tmux/tmux-server.conf
+    ~/.tmux: tmux
+
+- shell:
+  - [./tmux/install-tpm; ./tmux/install-terminfo]
