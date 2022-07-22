@@ -10,9 +10,10 @@ path=($path ~/.local/bin/)
 
 # If on Mac with Homebrew
 if [ -d "/opt/homebrew" ]; then
-  # Which Homebrew things do I want to override the default MacOS versions?
+  # Which Homebrew things do I want to include / override the default MacOS versions?
   path=(/opt/homebrew/opt/python/libexec/bin $path)
   path=(/opt/homebrew/opt/findutils/libexec/gnubin $path)
+  path=(/opt/homebrew/anaconda3/bin $path)
 
   # And finally include the main non-conflicting Homebrew commands in the path
   eval "$(/opt/homebrew/bin/brew shellenv)"
