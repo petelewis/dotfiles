@@ -1,1 +1,2 @@
 alias ls="ls -b -G"
+alias python=python3
